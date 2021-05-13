@@ -4,6 +4,10 @@ Ext.define("SessionGridPanel", {
     listeners: {
         itemdblclick: function(gridpanel, record, item, e){
             var formWindow = Ext.create('SessionForm');
+
+            var form = formWindow.down('form');
+            form.loadRecord(record);
+
             formWindow.show();
         }
     },

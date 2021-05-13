@@ -27,6 +27,27 @@ Ext.define("SessionForm", {
                     fieldLabel: 'Approved'
                 }
             ]
+        },
+        {
+            xtype: 'container',
+            padding: '10 10 10 10',
+            layout: {
+                type: 'hbox',
+                align: 'middle',
+                pack: 'center'
+            },
+            items: [
+                {
+                    xtype: 'button',
+                    text: 'Save',
+                    margin: '5 5 5 5',
+                },
+                {
+                    xtype: 'button',
+                    text: 'Cancel',
+                    margin: '5 5 5 5'
+                }
+            ]
         }
     ]
 })
