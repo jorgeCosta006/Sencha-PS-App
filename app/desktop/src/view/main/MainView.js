@@ -2,11 +2,26 @@ Ext.define("SessionGridPanel", {
   extend: 'Ext.grid.Panel',
   alias: 'widget.sessiongridpanel',
   store: {
-    fields: ['id', 'title', 'approved'],
-    data: [
-      { id: 101, title: 'Javascript for dummies', approved: true },
-      { id: 102, title: 'C# for smarties', approved: false },
-      { id: 103, title: 'ExtJS for everyone', approved: true }
+    fields: [
+      'id',
+      {
+        name: 'title',
+        sortType: 'asUCText'
+      },
+      'approved'
+    ],
+    autoLoad: true,
+    autoSync: true,
+    proxy: {
+      type: 'rest',
+      url: '/data/sessions.json',
+      reader: {
+        type: 'json',
+        rootProperty: 'data'
+      }
+    },
+    sorters: [
+      { property: 'title' }
     ]
   },
   columns: [
