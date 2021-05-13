@@ -19,7 +19,8 @@ Ext.define("SessionForm", {
                 {
                     xtype: 'textfield',
                     name: 'title',
-                    fieldLabel: 'Title'
+                    fieldLabel: 'Title',
+                    allowBlank: false
                 },
                 {
                     xtype: 'checkboxfield',
@@ -39,13 +40,22 @@ Ext.define("SessionForm", {
             items: [
                 {
                     xtype: 'button',
+                    formBind: true,
                     text: 'Save',
                     margin: '5 5 5 5',
+                    handler: function(button){
+                        var form = button.up().up().down('form');
+                        form.updateRecord();
+                        button.up('window').destroy();
+                    }
                 },
                 {
                     xtype: 'button',
                     text: 'Cancel',
-                    margin: '5 5 5 5'
+                    margin: '5 5 5 5',
+                    handler: function(button){
+                        button.up('window').destroy();
+                    }
                 }
             ]
         }
