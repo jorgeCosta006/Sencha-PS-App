@@ -1,27 +1,35 @@
-// var sessionGridPanel = Ext.create("Ext.grid.Panel", {
-//   store: {
-//     fields: ['id', 'title', 'approved'],
-//     data: [
-//       {id: 101, title: 'Javascript for dummies', approved: true},
-//       {id: 102, title: 'C# for smarties', approved: false},
-//       {id: 103, title: 'ExtJS for everyone', approved: true}
-//     ]
-//   },
-//   columns: [
-//     {
-//       xtype: 'gridcolumn',
-//       dataIndex: 'id'
-//     },
-//     {
-//       xtype: 'gridcolumn',
-//       dataIndex: 'title'
-//     },
-//     {
-//       xtype: 'gridcolumn',
-//       dataIndex: 'approved'
-//     }
-//   ]
-// });
+Ext.define("SessionGridPanel", {
+  extend: 'Ext.grid.Panel',
+  alias: 'widget.sessiongridpanel',
+  store: {
+    fields: ['id', 'title', 'approved'],
+    data: [
+      { id: 101, title: 'Javascript for dummies', approved: true },
+      { id: 102, title: 'C# for smarties', approved: false },
+      { id: 103, title: 'ExtJS for everyone', approved: true }
+    ]
+  },
+  columns: [
+    {
+      xtype: 'gridcolumn',
+      dataIndex: 'id',
+      text: 'Id'
+    },
+    {
+      xtype: 'gridcolumn',
+      dataIndex: 'title',
+      text: 'Title',
+      flex: 1,
+      minWidth: 100,
+      width: 75
+    },
+    {
+      xtype: 'gridcolumn',
+      dataIndex: 'approved',
+      text: 'Approved'
+    }
+  ]
+});
 
 var myContainer = Ext.create('Ext.container.Viewport', {
   layout: {
@@ -35,25 +43,22 @@ var myContainer = Ext.create('Ext.container.Viewport', {
     },
     flex: 1,
     split: true,
-    items: [{
-      html: '<b>Sessions Panel</b>',
-      flex: 2,
-      // style: {
-      //   border: '2px solid blue'
-      // },
-      // resizable: true,
-      xtype: 'panel'
-    },
-    { xtype: 'splitter', width: 1 },
-    {
-      html: '<b>Speakers Panel</b>',
-      flex: 1,
-      // style: {
-      //   border: '2px solid blue'
-      // },
-      // resizable: true,
-      xtype: 'panel'
-    }]
+    items: [
+      {
+        xtype: 'sessiongridpanel',
+        flex: 3
+      }
+      ,
+      { xtype: 'splitter', width: 1 },
+      {
+        html: '<b>Speakers Panel</b>',
+        flex: 1,
+        // style: {
+        //   border: '2px solid blue'
+        // },
+        // resizable: true,
+        xtype: 'panel'
+      }]
   },
   {
     region: 'center',
