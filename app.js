@@ -4,5 +4,22 @@ Ext.application({
 
 	controllers: [
 		'Sencha-PS-App.controller.SessionController'
+	],
+
+	stores: [
+		// 'Sessions',
+		'SessionPresenters',
+		'Presenters'
+	],
+
+	models: [
+		// 'Session',
+		'SessionPresenter',
+		'Presenter'
+	],
+
+	views: [
+		// 'Sessions',
+		'SessionForm'
 	]
 });

@@ -1,4 +1,4 @@
-Ext.define("SessionGridPanel", {
+Ext.define("Sencha-PS-App.view.SessionGridPanel", {
     extend: 'Ext.grid.Panel',
     alias: 'widget.sessiongridpanel',
     store: {

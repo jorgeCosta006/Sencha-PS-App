@@ -1,0 +1,48 @@
+Ext.define('Sencha-PS-App.model.Presenter', {
+    extend: 'Ext.data.Model',
+
+    requires: [
+        'Ext.data.Field',
+        'Ext.data.proxy.Rest',
+        'Ext.data.reader.Json'
+    ],
+
+    fields: [
+        {
+            name: 'id'
+        },
+        {
+            name: 'firsteName'
+        },
+        {
+            name: 'lastName'
+        },
+        {
+            convert: function(v, rec){
+                return rec.get('firstName') + ' ' + rec.get('lastName');
+            },
+            name: 'firstLast'
+        },
+        {
+            name: 'webSite'
+        },
+        {
+            name: 'bio'
+        },
+        {
+            name: 'imageUrl'
+        },
+        {
+            name: 'imagePicture'
+        }
+    ],
+
+    proxy: {
+        type: 'rest',
+        url: '/data/presenters.json',
+        reader: {
+            type: 'json',
+            rootProperty: 'data'
+        }
+    }
+});

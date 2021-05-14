@@ -1,4 +1,4 @@
-Ext.define("SessionForm", {
+Ext.define("Sencha-PS-App.view.SessionForm", {
     extend: "Ext.window.Window",
     alias: 'widget.sessionForm',
     padding: 5,
