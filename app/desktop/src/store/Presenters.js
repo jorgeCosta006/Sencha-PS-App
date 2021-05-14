@@ -1,5 +1,6 @@
 Ext.define('Sencha-PS-App.store.Presenters', {
     extend: 'Ext.data.Store',
+    alias: 'store.Presenters',
 
     requires: [
         'Sencha-PS-App.model.Presenter',

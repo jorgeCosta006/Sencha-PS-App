@@ -14,18 +14,16 @@ var myContainer = Ext.create('Ext.container.Viewport', {
       {
         xtype: 'sessiongridpanel',
         flex: 3
-      }
-      ,
-      { xtype: 'splitter', width: 1 },
+      },
       {
-        html: '<b>Speakers Panel</b>',
-        flex: 1,
-        // style: {
-        //   border: '2px solid blue'
-        // },
-        // resizable: true,
-        xtype: 'panel'
-      }]
+        xtype: 'splitter',
+        width: 1
+      },
+      {
+        xtype: 'presenters',
+        flex: 1
+      }
+    ]
   },
   {
     region: 'center',

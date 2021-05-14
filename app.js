@@ -19,7 +19,9 @@ Ext.application({
 	],
 
 	views: [
+		'main.MainView',
 		// 'Sessions',
-		'SessionForm'
+		'SessionForm',
+		'Presenters'
 	]
 });
