@@ -7,13 +7,12 @@ Ext.application({
 	],
 
 	stores: [
-		// 'Sessions',
 		'SessionPresenters',
 		'Presenters'
 	],
 
 	models: [
-		// 'Session',
+		'Session',
 		'SessionPresenter',
 		'Presenter'
 	],
@@ -22,6 +21,7 @@ Ext.application({
 		'main.MainView',
 		// 'Sessions',
 		'SessionForm',
-		'Presenters'
+		'Presenters',
+		// 'Details'
 	]
 });

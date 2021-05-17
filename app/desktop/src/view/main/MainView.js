@@ -26,18 +26,10 @@ var myContainer = Ext.create('Ext.container.Viewport', {
     ]
   },
   {
+    xtype: 'detailspanel',
+    flex: 2,
     region: 'center',
-    html: '<b>Details Panel</b>',
-    flex: 1,
-    // style: {
-    //   border: '2px solid blue'
-    // },
-    // resizable: true,
-    xtype: 'panel',
-    title: 'Details Panel',
-    collapsible: true,
-    collapsed: true,
-    // collapseDirection: 'right'
+    split: true
   }]
 });
 

@@ -1,12 +1,16 @@
-Ext.define('Sencha-PS-App.store.Sessions', {
-    extend: 'Ext.data.Store',
+Ext.define('Sencha-PS-App.model.Session', {
+    extend: 'Ext.data.Model',
+
+    requires: [
+        'Ext.data.Field',
+        'Ext.data.proxy.Rest',
+        'Ext.data.reader.Json'
+    ],
+
     fields: [
         'id',
-        {
-            name: 'title',
-            sortType: 'asUCText'
-        },
-        'approved',
+        { name: 'title', sortType: 'asUCText' },
+        { name: 'approved', type: 'boolean' },
         {
             dateFormat: 'c',
             name: 'sessionTimeDateTime',
@@ -15,16 +19,14 @@ Ext.define('Sencha-PS-App.store.Sessions', {
         },
         {
             convert: function (v, rec) {
-                var convertIt = Ext.util.Format.dateRenderer('m/d/Y g:i a'),
-                    pretty = convertIt(rec.get("sessionTimeDateTime"));
+                var converIT = Ext.util.Format.dateRenderer,
+                pretty = converIT(rec.get("sessionTimeDateTime"))
                 return pretty;
             },
             name: 'sessionTimePretty',
             type: 'string'
         }
     ],
-    autoLoad: true,
-    autoSync: true,
     proxy: {
         type: 'rest',
         url: '/data/sessions.json',
@@ -32,9 +34,5 @@ Ext.define('Sencha-PS-App.store.Sessions', {
             type: 'json',
             rootProperty: 'data'
         }
-    },
-    sorters: [
-        { property: 'title' }
-    ],
-    groupField: 'sessionTimeDateTime'
+    }
 })

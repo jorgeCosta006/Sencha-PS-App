@@ -1,7 +1,22 @@
 Ext.define("Sencha-PS-App.controller.SessionController", {
     extend: 'Ext.app.Controller',
 
-    stores: ['Sessions', 'Presenters', 'SessionPresenters'],
+    stores: ['Presenters', 'SessionPresenters'],
+
+    refs: [
+        {
+            ref: 'details',
+            selector: ' detailspanel'
+        },
+        {
+            ref: 'presenters',
+            selector: ' presenters'
+        },
+        {
+            ref: 'sessions',
+            selector: ' sessionsgripanel'
+        }
+    ],
 
     init: function () {
         this.control({
@@ -18,13 +33,6 @@ Ext.define("Sencha-PS-App.controller.SessionController", {
                     var sessionId = record.get("id");
 
                     var presenterIds = [];
-
-                    // var spStore = this.getSessionPresentersStore();
-                    // Ext.Array.each(spStore, function(rec){
-                    //     // if(rec.get("sessionId") === sessionId){
-                    //     //     presenterIds.push(rec.get('presenterId'));
-                    //     // }
-                    // });
 
                     this.getSessionPresentersStore().clearFilter();
                     this.getSessionPresentersStore().filterBy(function (rec) {
@@ -43,8 +51,20 @@ Ext.define("Sencha-PS-App.controller.SessionController", {
                         }
                         return foundMatch;
                     });
+
+                    var sessions = record.getData();
+                    sessions.presenters = [];
+                    this.getPresentersStore().each(function(presenterRecord){
+                        sessions.presenters.push(presenterRecord.getData());
+                    })
+
+                    var detailsPanel = this.getDetails();
+                    this.getPresentersStore().each(function (presenterRecord){
+                        sessions.presenters.push(presenterRecord.getData());
+                    })
+                    detailsPanel.update(sessions);
                 }
             }
         })
     }
-})
+});
