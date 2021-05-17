@@ -12,7 +12,7 @@ Ext.define('Sencha-PS-App.model.Presenter', {
             name: 'id'
         },
         {
-            name: 'firsteName'
+            name: 'firstName'
         },
         {
             name: 'lastName'

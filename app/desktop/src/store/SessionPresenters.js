@@ -1,5 +1,6 @@
 Ext.define('Sencha-PS-App.store.SessionPresenters', {
     extend: 'Ext.data.Store',
+    alias: 'SessionPresenters',
 
     requires: [
         'Sencha-PS-App.model.SessionPresenter',

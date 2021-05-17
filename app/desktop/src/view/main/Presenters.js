@@ -3,6 +3,7 @@ Ext.define('Sencha-PS-App.view.Presenters', {
 
     title: 'Presenter(s)',
     alias: 'widget.presenters',
+    requires: [ 'Sencha-PS-App.store.Presenters'],
 
     store: { type: 'Presenters' },
     columns: [
